@@ -1,0 +1,8 @@
+{
+  "name": "myAppOne",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "9bce8327"
+}

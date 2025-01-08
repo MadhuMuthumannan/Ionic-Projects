@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ionic Form Example</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <!-- Full Name -->
+    <ion-item>
+      <ion-label position="floating">Full Name</ion-label>
+      <ion-input type="text" formControlName="fullName"></ion-input>
+    </ion-item>
+    <div
+      *ngIf="myForm.controls['fullName'].invalid && myForm.controls['fullName'].touched"
+    >
+      <small class="error">Name must be at least 3 characters long</small>
+    </div>
+
+    <!-- Email -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <div
+      *ngIf="myForm.controls['email'].invalid && myForm.controls['email'].touched"
+    >
+      <small class="error">Enter a valid email address</small>
+    </div>
+
+    <!-- Radio Buttons -->
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-radio-group formControlName="gender">
+        <ion-item>
+          <ion-label>Male</ion-label>
+          <ion-radio slot="start" value="male"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Female</ion-label>
+          <ion-radio slot="start" value="female"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item>
+
+    <!-- Checkboxes -->
+    <ion-item>
+      <ion-label>Hobbies</ion-label>
+      <div formGroupName="hobbies">
+        <ion-item>
+          <ion-label>Coding</ion-label>
+          <ion-checkbox slot="start" formControlName="coding"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Music</ion-label>
+          <ion-checkbox slot="start" formControlName="music"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Sports</ion-label>
+          <ion-checkbox slot="start" formControlName="sports"></ion-checkbox>
+        </ion-item>
+      </div>
+    </ion-item>
+
+    <!-- Dropdown/Select -->
+    <ion-item>
+      <ion-label>Age Group</ion-label>
+      <ion-select formControlName="ageGroup">
+        <ion-select-option value="18-25">18-25</ion-select-option>
+        <ion-select-option value="26-35">26-35</ion-select-option>
+        <ion-select-option value="36-50">36-50</ion-select-option>
+        <ion-select-option value="50+">50+</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Textarea -->
+    <ion-item>
+      <ion-label position="floating">Bio</ion-label>
+      <ion-textarea formControlName="bio"></ion-textarea>
+    </ion-item>
+
+    <!-- Checkbox to Accept Terms -->
+    <ion-item>
+      <ion-label>Accept Terms and Conditions</ion-label>
+      <ion-checkbox slot="start" formControlName="acceptTerms"></ion-checkbox>
+    </ion-item>
+
+    <!-- Submit Button -->
+    <ion-button expand="block" type="submit" [disabled]="myForm.invalid">
+      Submit
+    </ion-button>
+  </form>
+</ion-content>
